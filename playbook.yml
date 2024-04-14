@@ -1,0 +1,85 @@
+name: Main
+
+hosts: localhost
+
+tasks:
+
+name: Update System
+
+become: yes
+
+apt:
+
+e Manag
+
+upgrade: dist
+
+update_cache: yes
+
+tags:
+
+update_system
+
+nt
+
+name: Restart nginx
+
+service:
+
+name: nginx
+
+state: restarted
+
+Actions
+
+tags:
+
+restart_nginx
+
+name: Install nginx
+
+become: yes
+
+apt:
+name: nginx
+
+state: latest
+
+notify: Restart nginx
+
+tags: install_ngnix
+
+name: Install OpenVPN
+
+host: localhost
+
+ag
+
+tasks:
+
+name: Ensure Curl
+
+become: yes
+
+apt:
+
+name:
+
+curl
+
+state: latest
+
+- name: Download openVPN
+
+shell: curl -0 "https://raw.githubuserconte
+
+name: Change File Mod
+
+shell: chmod +x openvpn-install.sh
+
+name: Execute File
+
+shell: ./openvpn-install.sh
+
+tags:
+- install_openvpn
